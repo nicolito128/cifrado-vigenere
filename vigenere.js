@@ -1,4 +1,4 @@
-/* Cifrado Vigenere */
+/* Cifrado Vigenère */
 /* 
 	El cifrado Vigenère es un cifrado basado en diferentesseries de caracteres o letras del cifrado 
 	César formando estos caracteres una tabla, llamada tabla de Vigenère, que se usa como clave. 
