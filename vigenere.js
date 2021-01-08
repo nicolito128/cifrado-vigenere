@@ -16,7 +16,7 @@ const alphabetSize = alphabet.length - 1;
 function encrypt(message, key) {
 	const messageIndexes = getIndexesOf(message)
 	const keyIndexes = matchLengthWith(getIndexesOf(key), message)
-	let encryptedMessage = ""
+	let encryptedMessage = ''
 
     // Para encriptar el mensaje se suma cada letra con su correspondiente en la clave.
 	for (let i = 0; i < messageIndexes.length; i++) {
@@ -60,13 +60,14 @@ function getIndexesOf(message) {
 function matchLengthWith(key, message) {
 	if (!Array.isArray(key)) return []
 	if (key.length == message.length) return key
+	let result = ''
 
 	for (let i = 0; message.length >= key.length; i++) {
-		key.push(key[i])
+		result.push(key[i])
 		if (i >= key.length) i = 0
 	}
 
-	return key
+	return result
 }
 
 module.exports = { encrypt, decrypt }
