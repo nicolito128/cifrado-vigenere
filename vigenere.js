@@ -17,14 +17,14 @@ function encrypt(message, key) {
 	const messageIndexes = getIndexesOf(message)
 	const keyIndexes = matchLengthWith(getIndexesOf(key), message)
 	let encryptedMessage = ''
-	
+
     // Para encriptar el mensaje se suma cada letra con su correspondiente en la clave.
-	for (let i = 0; i < messageIndexes.length; i++) {
-		let letter = messageIndexes[i] + keyIndexes[i]
+	messageIndexes.forEach((cur, i) => {
+		let letter = cur + keyIndexes[i]
 		// En caso de dar un resultado mayor a la longitud del alfabeto se resta la Longitud - 1 para obtener el resultado real.
 		if (letter >= alphabet.length) letter -= alphabetSize
 		encryptedMessage += alphabet[letter]
-	}
+	})
 
 	return encryptedMessage
 }
@@ -32,16 +32,15 @@ function encrypt(message, key) {
 function decrypt(message, key) {
 	const messageIndexes =  getIndexesOf(message)
 	const keyIndexes = matchLengthWith(getIndexesOf(key), message)
-	let decryptedMessage = ""
+	let decryptedMessage = ''
 
     // Para descifrar hay que restar cada letra del mensaje cifrado con su correspondiente en la clave.
-	for (let i = 0; i < messageIndexes.length; i++) {
-		let letter = messageIndexes[i] - keyIndexes[i]
-
+	messageIndexes.forEach((cur, i) => {
+		let letter = cur - keyIndexes[i]
 		// En caso de dar un número negativo hay que sumar la Longitud del Alfabeto - 1.
 		if (letter < 0) letter += alphabetSize
 		decryptedMessage += alphabet[letter]
-	}
+	})
 
 	return decryptedMessage
 }
